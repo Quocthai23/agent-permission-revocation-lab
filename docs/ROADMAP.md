@@ -2,7 +2,7 @@
 
 ## Current position
 
-Version 0.3.0 implements the authenticated first-party integration pilot and a Resend test-address adapter. The core API is unchanged. This is a private local research project, not a production deployment or a public npm release.
+The 0.3.0 baseline implements the authenticated first-party integration pilot and a Resend test-address adapter. The core API is unchanged. The 0.4.0-alpha.1 series prepares this work for an MIT-licensed public experimental release. It is not a production deployment; npm publication remains pending publisher login.
 
 ## Completed implementation
 
@@ -36,7 +36,7 @@ Before a supported public release:
 
 1. Complete the relevant external verification above and document supported environments and remaining limitations.
 2. Review the unchanged/changed public API baseline, SemVer choice, migration notes and changelog.
-3. Select a distribution license and repository ownership. Neither has been assumed from the local Windows account name.
+3. MIT is selected for the public preview, with Quocthai23 as the copyright notice holder.
 4. Make an explicit publication decision, review package contents and installation instructions, then publish through the selected channel.
 
-Until that decision, keep private: true. A passing local pipeline and tarball do not make the pilot a production service or a published release.
+The owner authorized the MIT/public-preview plan. Public metadata and a next-tag npm configuration are prepared. See RELEASE.md for distribution instructions; registry publication must not be claimed until it succeeds.

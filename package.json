@@ -1,7 +1,6 @@
 {
   "name": "agent-permission-revocation-lab",
-  "version": "0.3.0",
-  "private": true,
+  "version": "0.4.0-alpha.1",
   "type": "module",
   "sideEffects": false,
   "exports": {
@@ -21,7 +20,8 @@
     "CONTRIBUTING.md",
     "docs/*.md",
     "docs/research/*.md",
-    "docs/research/http-results.json"
+    "docs/research/http-results.json",
+    "LICENSE"
   ],
   "engines": {
     "node": ">=22.19.0"
@@ -40,7 +40,8 @@
     "demo": "node examples/run.js",
     "docs": "node scripts/generate-docs.js",
     "demo:sqlite": "node examples/sqlite-study.js",
-    "demo:http": "npm run build && node examples/http-study.js"
+    "demo:http": "npm run build && node examples/http-study.js",
+    "prepublishOnly": "npm run verify"
   },
   "overrides": {
     "typedoc": {
@@ -53,5 +54,28 @@
     "playwright": "1.65.1",
     "typedoc": "0.28.20",
     "typescript": "5.9.3"
+  },
+  "license": "MIT",
+  "author": "Quocthai23",
+  "description": "Execution-time permission checks for deferred AI agent tasks, with reproducible SQLite and HTTP experiments.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Quocthai23/agent-permission-revocation-lab.git"
+  },
+  "homepage": "https://github.com/Quocthai23/agent-permission-revocation-lab#readme",
+  "bugs": {
+    "url": "https://github.com/Quocthai23/agent-permission-revocation-lab/issues"
+  },
+  "keywords": [
+    "ai-agents",
+    "authorization",
+    "permission-revocation",
+    "typescript",
+    "sqlite",
+    "task-queue"
+  ],
+  "publishConfig": {
+    "access": "public",
+    "tag": "next"
   }
 }

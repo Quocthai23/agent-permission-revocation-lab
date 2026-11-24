@@ -19,11 +19,12 @@ try {
   const files = pack.files.map(file => file.path);
   assert.ok(files.includes("dist/guard.js") && files.includes("dist/sqlite.d.ts"));
   assert.ok(files.includes("CHANGELOG.md"));
-  const guides = ["README.md", "CHANGELOG.md", "CONTRIBUTING.md", "docs/ROADMAP.md", "docs/PILOT.md", "docs/RESEND.md", "docs/research/README.md"];
+  const guides = ["README.md", "CHANGELOG.md", "CONTRIBUTING.md", "docs/ROADMAP.md", "docs/PILOT.md", "docs/RESEND.md", "docs/RELEASE.md", "docs/ANNOUNCEMENT.md", "docs/research/README.md"];
+  assert.ok(files.includes("LICENSE"));
   for (const guide of guides) assert.ok(files.includes(guide), `Missing package guide: ${guide}`);
   assert.ok(files.includes("docs/research/http-results.json"));
   assert.ok(files.every(path => path.startsWith("dist/") ||
-    ["package.json", ...guides, "docs/research/http-results.json"].includes(path)), "Unexpected packed files");
+    ["package.json", "LICENSE", ...guides, "docs/research/http-results.json"].includes(path)), "Unexpected packed files");
   const consumer = join(scratch, "consumer");
   await mkdir(consumer);
   await writeFile(join(consumer, "package.json"), JSON.stringify({ private: true, type: "module" }));

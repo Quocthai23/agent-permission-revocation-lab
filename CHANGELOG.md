@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.4.0-alpha.1 - 2026-11-24
+
+- Open the public experimental preview series under MIT, with unchanged core API declarations.
+- Add package metadata, a GitHub-installable tarball, release notes, issue guidance and launch drafts.
+- Prepare npm publication under the next tag; actual registry publication requires publisher login.
+
+
 ## 0.3.0 - 2026-11-24 (local integration pilot)
 
 ### Added

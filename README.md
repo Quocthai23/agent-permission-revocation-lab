@@ -1,8 +1,10 @@
 # Agent Permission Revocation Lab
 
+[![Verify](https://github.com/Quocthai23/agent-permission-revocation-lab/actions/workflows/verify.yml/badge.svg)](https://github.com/Quocthai23/agent-permission-revocation-lab/actions/workflows/verify.yml) [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+
 A TypeScript research prototype for checking an AI agent's current authority when a deferred operation resumes. It compares authorization at scheduling time with authorization at execution time, including SQLite transactions and a local HTTP destination.
 
-**Status:** version 0.3.0, private research and integration pilot. Not published to npm and not ready for production deployment. The core has no runtime dependencies.
+**Status:** 0.4.0-alpha.1, MIT-licensed experimental preview. npm registry publication is pending; use the source checkout or GitHub release tarball. The core has no runtime dependencies. See [release notes](docs/RELEASE.md).
 
 ## Requirements
 
@@ -11,6 +13,13 @@ A TypeScript research prototype for checking an AI agent's current authority whe
 - Python 3 only for the optional browser demo server below.
 
 ## Quick start
+
+Clone the repository first, then run the experiments without an API key:
+
+```sh
+git clone https://github.com/Quocthai23/agent-permission-revocation-lab.git
+cd agent-permission-revocation-lab
+```
 
 Run these commands from the project directory:
 
@@ -125,4 +134,4 @@ Version 0.2.1 passed 49 behavioral tests on Windows; 0.3.0 adds multi-process pi
 - [Changelog](CHANGELOG.md): version history and compatibility policy.
 - [Roadmap and release gates](docs/ROADMAP.md): the next implementation milestone and evidence required before deployment.
 
-The first-party pilot and Resend test-address adapter are implemented. Live Resend test-address submission and delivered status retrieval are verified; additional provider failure cases remain pending; the remote CI workflow runs on pushes to the selected GitHub repository. Distribution remains private, and a license has not yet been selected. Completing the local pilot is not a production deployment or a publication decision.
+The first-party pilot and Resend test-address adapter are implemented. Live Resend test-address submission and delivered status retrieval are verified; additional provider failure cases remain pending; the remote CI workflow runs on pushes to the selected GitHub repository. The source and library are licensed under [MIT](LICENSE), copyright 2026 Quocthai23. This preview is for experimentation and feedback. See [release notes](docs/RELEASE.md) for installation and remaining publication steps.
