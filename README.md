@@ -119,7 +119,7 @@ Run `npm run test:browser` to automate grant, execution, revocation and expiry i
 
 ## Development and project status
 
-Version 0.2.1 passed 49 behavioral tests on Windows; 0.3.0 adds multi-process pilot and Resend contract coverage. Ubuntu/WSL verification and a real Edge browser test have also been run locally. See [Research and evidence](docs/research/README.md) for the recorded environments, current results, and boundaries. GitHub Actions is configured for Windows/Linux and Node 22.19.0/24.x, including Chromium; remote Actions runs have not been verified.
+Version 0.2.1 passed 49 behavioral tests on Windows; 0.3.0 adds multi-process pilot and Resend contract coverage. Ubuntu/WSL verification and a real Edge browser test have also been run locally. See [Research and evidence](docs/research/README.md) for the recorded environments, current results, and boundaries. GitHub Actions is configured for Windows/Linux and Node 22.19.0/24.x, including Chromium; the owner-provided screenshot confirms all four remote matrix jobs succeeded for commit f4492ca (Verify #1).
 
 - [Contributing and verification](CONTRIBUTING.md): commands, API compatibility checks, packaging checks, and the temporary TypeDoc compatibility patch.
 - [Changelog](CHANGELOG.md): version history and compatibility policy.

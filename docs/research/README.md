@@ -100,9 +100,14 @@ On Windows, `npm run verify:all` additionally passed real Microsoft Edge 159.0.4
 
 The same browser test also passed on Ubuntu/WSL with real Chromium Headless Shell 159.0.8154.6 and Node.js 24.22.2, with no page errors. The browser was installed under the temporary Linux workspace; no system packages were installed or replaced. The Linux temporary screenshot was not retained after that WSL instance exited. The reproduction scripts now copy future screenshots into the checkout before exit. Run `sh scripts/verify-wsl.sh 24.22.2 --browser` from WSL to keep verification and browser execution in one invocation.
 
-No live Resend API request or remote GitHub Actions run is represented by these results. The owner confirmed that a Resend API key is not available. Provider tests use injected transports; they deliberately demonstrate the post-check revocation gap rather than claiming atomic remote enforcement.
+The local pipeline results above do not represent live provider or remote Actions execution. Subsequent live Resend and remote CI evidence is recorded separately below. Provider tests use injected transports; they deliberately demonstrate the post-check revocation gap rather than claiming atomic remote enforcement.
 
 
 ## Live Resend test - 2026-11-24
 
 An authorized live request sent the fixed sandbox payload from onboarding@resend.dev to delivered@resend.dev. Resend returned accepted with email ID 01a20e29-b27d-74c0-9217-11a2f9a22664. A subsequent GET returned last_event=delivered. This is a provider test-address event, not delivery to a real user. No live duplicate submission, cancellation, or provider failure injection was performed. Credentials remain only in the ignored local .env file and are excluded from this evidence. This result supersedes the earlier missing-credentials status.
+
+
+## Remote GitHub Actions evidence - 2026-11-24
+
+The owner supplied a GitHub screenshot showing Verify #1, triggered via pull_request, at commit f4492ca. Overall status is Success, duration 5m 36s, with four artifacts. All four jobs succeeded: ubuntu-latest with Node 24.x (1m 10s) and 22.19.0 (1m 7s), and windows-latest with Node 22.19.0 (5m 32s) and 24.x (3m 21s). This records screenshot evidence supplied by the owner; individual remote logs were not independently retrieved. It applies to f4492ca, not subsequent documentation commits or every possible environment.

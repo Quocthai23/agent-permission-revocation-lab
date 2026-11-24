@@ -19,10 +19,10 @@ The guarantee remains scoped to authority and protected destination effects shar
 ## Pending external verification
 
 1. **Resend account and sender:** live test-address submission and status retrieval passed on 2026-11-24. Configure the ignored local .env file as described in the Resend guide, then record actual test-address acceptance, repeated submissions and status retrieval. Provider acceptance and delivery events must be distinguished. Resend reported delivered for the test address; live retry/failure cases remain pending.
-2. **Remote CI repository:** The selected repository is https://github.com/Quocthai23/agent-permission-revocation-lab. GitHub Actions is configured; the first remote matrix result must be checked after pushing. Local WSL results do not stand in for an Actions run.
+2. **Remote CI repository:** Completed for commit f4492ca: the owner-provided screenshot shows Verify #1 succeeded across ubuntu-latest/windows-latest and Node 22.19.0/24.x. Total duration was 5m 36s, with four artifacts. This evidence confirms that run, not future commits.
 3. **TypeDoc upstream compatibility:** retain the scoped, checked compatibility patch until a compatible upstream dependency upgrade is available; review rather than automatically replacing it.
 
-Local browser coverage is complete for Edge 159.0.4402.13 on Windows (Node 22.19.0 and 24.22.2) and Chromium 159.0.8154.6 on Ubuntu 24.04.2/WSL (Node 24.22.2). This does not imply all browsers or remote CI have passed.
+Local browser coverage is complete for Edge 159.0.4402.13 on Windows (Node 22.19.0 and 24.22.2) and Chromium 159.0.8154.6 on Ubuntu 24.04.2/WSL (Node 24.22.2). Remote CI also passed the configured four-job matrix for f4492ca; this does not imply coverage of every browser or future commit.
 
 ## Provider boundaries and follow-up
 

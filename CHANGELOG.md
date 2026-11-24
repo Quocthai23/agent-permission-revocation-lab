@@ -7,7 +7,7 @@
 - A separate TypeScript pilot with authenticated loopback HTTP, server-derived scopes, immutable operation IDs, persistent receipts and owner-only status lookup after revocation.
 - SQLite outbox claims, bounded retries, expiring leases and fencing against stale worker completion. Ambiguous exhausted outcomes remain `uncertain`.
 - Multi-process tests for concurrent delivery, competing workers, in-flight revocation and receiver crash/restart after commit.
-- A Resend test-address-only adapter with persistent intent, stable idempotency keys, a bounded retry window, attempt fencing and local injected-transport contract tests. Live provider verification remains pending credentials.
+- A Resend test-address-only adapter with persistent intent, stable idempotency keys, a bounded retry window, attempt fencing and local injected-transport contract tests. Live test-address submission and delivered status retrieval were subsequently verified; live retry/failure cases remain pending.
 - A real-browser Edge/Chromium check covering grant, execution, revocation and expiry, plus Chromium setup in the CI matrix.
 - Strict checking for all JavaScript examples and a reproducible Ubuntu/WSL verification script.
 
@@ -16,7 +16,7 @@
 - 67/67 behavioral tests and the complete backend/package/documentation/audit pipeline passed locally on Windows and Ubuntu/WSL with Node.js 22.19.0 and 24.22.2.
 - Real Edge grant/execute/revoke/expiry checks passed on Windows with both Node versions.
 - Real Chromium 159.0.8154.6 checks passed on Ubuntu 24.04.2/WSL with Node 24.22.2.
-- Live Resend verification remains blocked by missing account credentials; remote Actions runs remain pending a connected repository. No public release or production deployment was performed.
+- Live Resend test-address submission and delivered status retrieval passed. The owner-provided screenshot confirms all four remote GitHub Actions jobs passed for f4492ca (Verify #1). No public npm release or production deployment was performed.
 
 The library entry points and public declarations are unchanged. Pilot modules remain outside package exports. This local version has not been published or deployed.
 
