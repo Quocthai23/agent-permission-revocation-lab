@@ -1,0 +1,57 @@
+{
+  "name": "agent-permission-revocation-lab",
+  "version": "0.3.0",
+  "private": true,
+  "type": "module",
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./dist/guard.d.ts",
+      "import": "./dist/guard.js"
+    },
+    "./sqlite": {
+      "types": "./dist/sqlite.d.ts",
+      "import": "./dist/sqlite.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "CHANGELOG.md",
+    "CONTRIBUTING.md",
+    "docs/*.md",
+    "docs/research/*.md",
+    "docs/research/http-results.json"
+  ],
+  "engines": {
+    "node": ">=22.19.0"
+  },
+  "scripts": {
+    "build": "tsc && tsc -p pilot/tsconfig.json",
+    "test": "npm run build && npm run check:types && npm run check:api && node --test test/*.test.js",
+    "check:api": "node scripts/check-api.js",
+    "check:types": "tsc -p test/tsconfig.json && tsc -p examples/tsconfig.json",
+    "test:package": "npm run build && node scripts/verify-package.js",
+    "verify": "npm test && npm run test:package && npm run docs && npm audit --audit-level=moderate",
+    "verify:all": "npm run verify && npm run test:browser",
+    "test:browser": "npm run build && node scripts/test-browser.js",
+    "demo:pilot": "npm run build && node .pilot/demo.js",
+    "demo:resend": "npm run build && node --env-file-if-exists=.env .pilot/resend-cli.js",
+    "demo": "node examples/run.js",
+    "docs": "node scripts/generate-docs.js",
+    "demo:sqlite": "node examples/sqlite-study.js",
+    "demo:http": "npm run build && node examples/http-study.js"
+  },
+  "overrides": {
+    "typedoc": {
+      "minimatch": "11.0.1"
+    }
+  },
+  "devDependencies": {
+    "@types/node": "22.20.5",
+    "esbuild": "0.28.2",
+    "playwright": "1.65.1",
+    "typedoc": "0.28.20",
+    "typescript": "5.9.3"
+  }
+}

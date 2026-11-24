@@ -1,0 +1,4 @@
+{
+  ".": "export interface Scope {\n    agent: string;\n    task: string;\n    action: string;\n    resource: string;\n}\nexport declare class TaskGuard {\n    #private;\n    grant(scope: Scope, expiresAt: number): string;\n    revoke(id: string): boolean;\n    run<T>(id: string, scope: Scope, operation: () => T): T;\n}",
+  "./sqlite": "import type { DatabaseSync } from \"node:sqlite\";\nimport type { Scope } from \"./guard.js\";\nexport declare class SqliteTaskGuard {\n    #private;\n    constructor(database: DatabaseSync);\n    grant(scope: Scope, expiresAt: number): string;\n    revoke(id: string): boolean;\n    run<T>(id: string, scope: Scope, operation: () => T & (T extends PromiseLike<unknown> ? never : unknown)): T;\n}"
+}

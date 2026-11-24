@@ -1,0 +1,11 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><title>Agent permission revocation</title>
+<button id="grant">Grant permission</button> <button id="revoke">Revoke permission</button> <button id="resume">Resume task</button><p><output id="status">Waiting for a grant</output></p>
+<script type="module">
+import {TaskGuard} from "../dist/guard.js";
+const guard = new TaskGuard(), scope = {agent:"demo",task:"draft",action:"write",resource:"report"};
+let id;
+const status = document.querySelector("output");
+document.querySelector("#grant").onclick = () => {if(id) guard.revoke(id); id=guard.grant(scope,Date.now()+60000); status.value="Permission granted for 60 seconds";};
+document.querySelector("#revoke").onclick = () => {if(id) guard.revoke(id);status.value="Permission revoked";};
+document.querySelector("#resume").onclick = () => {try{guard.run(id,scope,()=>status.value="Draft written");}catch(e){status.value=e.message;}};
+</script></html>

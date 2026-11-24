@@ -1,0 +1,8 @@
+{
+  "compilerOptions": {
+    "strict": true, "target": "ES2022", "lib": ["ES2024", "DOM"],
+    "module": "NodeNext", "moduleResolution": "NodeNext",
+    "rootDir": ".", "outDir": "../.pilot", "declaration": false
+  },
+  "include": ["*.ts"]
+}

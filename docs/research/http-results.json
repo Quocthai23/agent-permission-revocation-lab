@@ -1,0 +1,195 @@
+﻿{
+  "environment": {
+    "node": "v24.22.2",
+    "platform": "win32",
+    "arch": "x64"
+  },
+  "transport": "HTTP on 127.0.0.1; separate SQLite connections sharing one local file",
+  "ordering": "Explicit request-received/release/commit gates; no timing sleeps",
+  "rows": [
+    {
+      "strategy": "outbox-only",
+      "revokeAt": "never",
+      "requests": 1,
+      "decisions": [
+        "committed"
+      ],
+      "responses": [
+        200
+      ],
+      "writes": 1
+    },
+    {
+      "strategy": "outbox-only",
+      "revokeAt": "before-dispatch",
+      "requests": 1,
+      "decisions": [
+        "committed"
+      ],
+      "responses": [
+        200
+      ],
+      "writes": 1
+    },
+    {
+      "strategy": "outbox-only",
+      "revokeAt": "in-flight",
+      "requests": 1,
+      "decisions": [
+        "committed"
+      ],
+      "responses": [
+        200
+      ],
+      "writes": 1
+    },
+    {
+      "strategy": "outbox-only",
+      "revokeAt": "after-commit",
+      "requests": 1,
+      "decisions": [
+        "committed"
+      ],
+      "responses": [
+        200
+      ],
+      "writes": 1
+    },
+    {
+      "strategy": "dispatch-check",
+      "revokeAt": "never",
+      "requests": 1,
+      "decisions": [
+        "committed"
+      ],
+      "responses": [
+        200
+      ],
+      "writes": 1
+    },
+    {
+      "strategy": "dispatch-check",
+      "revokeAt": "before-dispatch",
+      "requests": 0,
+      "decisions": [],
+      "responses": [
+        "dispatch-denied"
+      ],
+      "writes": 0
+    },
+    {
+      "strategy": "dispatch-check",
+      "revokeAt": "in-flight",
+      "requests": 1,
+      "decisions": [
+        "committed"
+      ],
+      "responses": [
+        200
+      ],
+      "writes": 1
+    },
+    {
+      "strategy": "dispatch-check",
+      "revokeAt": "after-commit",
+      "requests": 1,
+      "decisions": [
+        "committed"
+      ],
+      "responses": [
+        200
+      ],
+      "writes": 1
+    },
+    {
+      "strategy": "receiver-atomic",
+      "revokeAt": "never",
+      "requests": 1,
+      "decisions": [
+        "committed"
+      ],
+      "responses": [
+        200
+      ],
+      "writes": 1
+    },
+    {
+      "strategy": "receiver-atomic",
+      "revokeAt": "before-dispatch",
+      "requests": 1,
+      "decisions": [
+        "denied"
+      ],
+      "responses": [
+        403
+      ],
+      "writes": 0
+    },
+    {
+      "strategy": "receiver-atomic",
+      "revokeAt": "in-flight",
+      "requests": 1,
+      "decisions": [
+        "denied"
+      ],
+      "responses": [
+        403
+      ],
+      "writes": 0
+    },
+    {
+      "strategy": "receiver-atomic",
+      "revokeAt": "after-commit",
+      "requests": 1,
+      "decisions": [
+        "committed"
+      ],
+      "responses": [
+        200
+      ],
+      "writes": 1
+    },
+    {
+      "strategy": "receiver-atomic",
+      "scenario": "response lost then retry",
+      "requests": 3,
+      "decisions": [
+        "committed",
+        "committed",
+        "committed"
+      ],
+      "responses": [
+        "response-lost",
+        200,
+        200
+      ],
+      "writes": 1
+    },
+    {
+      "strategy": "receiver-atomic",
+      "scenario": "response lost then revoke",
+      "requests": 2,
+      "decisions": [
+        "committed",
+        "denied"
+      ],
+      "responses": [
+        "response-lost",
+        403
+      ],
+      "writes": 1
+    },
+    {
+      "strategy": "receiver-atomic",
+      "scenario": "client abort after receipt",
+      "requests": 1,
+      "decisions": [
+        "committed"
+      ],
+      "responses": [
+        "aborted"
+      ],
+      "writes": 1
+    }
+  ]
+}
